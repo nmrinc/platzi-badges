@@ -7,62 +7,64 @@ import BadgesList from '../components/BadgesList';
 import api from '../api';
 
 class Badges extends React.Component {
-  state = {
-    loading: true,
-    error: null,
-    data: undefined,
-  };
+	state = {
+		loading: true,
+		error: null,
+		data: undefined,
+	};
 
-  componentDidMount() {
-    this.fetchData();
-  }
+	componentDidMount() {
+		//@o The best place to start a fetch to an API is in this method.
+		this.fetchData();
+	}
 
-  fetchData = async () => {
-    this.setState({ loading: true, error: null });
+	fetchData = async () => {
+		//@o As this method can be called several times, it's a good practice to reset the loading and error on the state.
+		this.setState({ loading: true, error: null });
 
-    try {
-      const data = await api.badges.list();
-      this.setState({ loading: false, data: data });
-    } catch (error) {
-      this.setState({ loading: false, error: error });
-    }
-  };
+		try {
+			const data = await api.badges.list();
+			this.setState({ loading: false, data: data });
+		} catch (error) {
+			this.setState({ loading: false, error: error });
+		}
+	};
 
-  render() {
-    if (this.state.loading === true) {
-      return 'Loading...';
-    }
+	render() {
+		if (this.state.loading === true) {
+			return 'Loading...';
+		}
 
-    if (this.state.error) {
-      return `Error: ${this.state.error.message}`;
-    }
+		if (this.state.error) {
+			return `Error: ${this.state.error.message}`;
+		}
 
-    return (
-      <React.Fragment>
-        <div className="Badges">
-          <div className="Badges__hero">
-            <div className="Badges__container">
-              <img
-                className="Badges_conf-logo"
-                src={confLogo}
-                alt="Conf Logo"
-              />
-            </div>
-          </div>
-        </div>
+		return (
+			<React.Fragment>
+				<div className="Badges">
+					<div className="Badges__hero">
+						<div className="Badges__container">
+							<img
+								className="Badges_conf-logo"
+								src={confLogo}
+								alt="Conf Logo"
+							/>
+						</div>
+					</div>
+				</div>
 
-        <div className="Badges__container">
-          <div className="Badges__buttons">
-            <Link to="/badges/new" className="btn btn-primary">
-              New Badge
-            </Link>
-          </div>
+				<div className="Badges__container">
+					<div className="Badges__buttons">
+						<Link to="/badges/new" className="btn btn-primary">
+							New Badge
+						</Link>
+					</div>
 
-          <BadgesList badges={this.state.data} />
-        </div>
-      </React.Fragment>
-    );
-  }
+					<BadgesList badges={this.state.data} />
+				</div>
+			</React.Fragment>
+		);
+	}
 }
 
 export default Badges;
