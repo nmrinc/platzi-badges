@@ -17,10 +17,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import './global.css';
+import App from './components/App';
+
 //@o This is JSX syntax. And every time you want to use it it's necessary to import react
-const element = <h1>Hello, Platzi Badges from React!</h1>;
+//const element = <h1>Hello, Platzi Badges from React!</h1>;
 
 const container = document.getElementById('app');
 
 //@o ReactDOM.render(__qué__, __dónde__);
-ReactDOM.render(element, container);
+ReactDOM.render(<App />, container);
