@@ -64,6 +64,6 @@ Last with help of npm-run-all create a script to run everything
 "start": "npm-run-all -p client server",
 ```
 
-### 3. Develop the SPA
+### 3. Develops the SPA
 
 Take special care on divide your code into components, pages and containers. Giving every one the correct hierarchy according on the function that performs.
