@@ -37,3 +37,33 @@ First create the project with the next code:
 ```
 >npx create-react-app platzi-badges
 ```
+
+### 2. Create a mock server
+
+First install needed dependencies to deploy this mock server
+
+```
+>npm i -D json-server npm-run-all
+```
+
+Create a DB.
+
+Create a mock API to consume the DB.
+
+Create the scripts to deploy both the client and the server
+
+```
+"client": "react-scripts start",
+"server": "json-server --port 3001 --watch server/db.json",
+
+```
+
+Last with help of npm-run-all create a script to run everything
+
+```
+"start": "npm-run-all -p client server",
+```
+
+### 3. Develop the SPA
+
+Take special care on divide your code into components, pages and containers. Giving every one the correct hierarchy according on the function that performs.
