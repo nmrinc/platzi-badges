@@ -12,8 +12,10 @@
 
 //@context This way it's using React
 //@a Import react dependencies.
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 //@o This is JSX syntax. And every time you want to use it it's necessary to import react
 const element = <h1>Hello, Platzi Badges from React!</h1>;
